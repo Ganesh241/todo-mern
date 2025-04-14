@@ -77,12 +77,12 @@ const markTaskComplete = async (req, res) => {
 };
 
 const markTaskNotComplete = async (req, res) => {
-    console.log('Route handler reached');
+    // console.log('Route handler reached');
     const taskId = req.params.taskId;
-    console.log('Task ID:', taskId);
+    // console.log('Task ID:', taskId);
     try {
         const taskId = req.params.taskId;
-        console.log('task id is',taskId);
+        // console.log('task id is',taskId);
         const task = await Task.findByIdAndUpdate(taskId, { Complete: false }, { new: true });
         
         if (!task) {
@@ -100,7 +100,7 @@ const deleteTask = async (req, res) => {
         const taskId = req.params.taskId;
         const task = await Task.findByIdAndDelete(taskId);
         // Log the task ID and request body
-        console.log('Task ID:', taskId);
+        // console.log('Task ID:', taskId);
         if (!task) {
             return res.status(404).send('Task not found');
         }
